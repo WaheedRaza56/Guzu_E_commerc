@@ -1,0 +1,24 @@
+
+
+    <div class="form-password-info">
+      <h5>Recover password</h5>
+      <div class="form-login">
+        <form action="{% url 'SignUp' %}" method="post" novalidate class="shadow p-2">
+          {% csrf_token %}
+
+          {% for fm in formfour %}
+            <div class="form-group">
+              {{ fm }}
+              <small class="text-danger">{{fm.errors|striptags}}</small>
+            </div>
+          {% endfor %}
+
+          <div class="text-center">
+            <p class="body-p2 neutral-medium-dark">Already have an account?<a class="neutral-dark login-now" href="#">Login Now</a></p>
+          </div>
+          <br>
+          <input type="submit" value="Recovery" class="btn btn-black">
+      </form>
+      </div>
+    </div>
+    

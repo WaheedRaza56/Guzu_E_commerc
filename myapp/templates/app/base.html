@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="msapplication-TileColor" content="#0E0E0E">
+  <meta name="template-color" content="#0E0E0E">
+  <meta name="description" content="Index page">
+  <meta name="keywords" content="index, page">
+  <meta name="author" content="">
+
+  <link rel="shortcut icon" type="image/x-icon" href="{% static '/imgs/template/favicon.svg' %}">
+  <link href="{% static '/css/style.css' %}" rel="stylesheet">
+  <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">
+
+  <script src="{% static 'js/vendors/jquery-3.7.0.min.js' %}"></script>
+  <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
+  
+  {% block title %}
+    <title>Home - Furniture 2 - Multipurpose Startup SaaS HTML Template</title>
+  {% endblock title %}
+
+</head>
+<body>
+
+  {% include 'includeFiles/header.html' %}
+
+  {% block main %}
+  {% endblock main %}
+
+  {% include 'includeFiles/footer.html' %}
+
+  {% block cart %}
+  {% include 'includeFiles/cart.html' %}
+  {% endblock cart %}
+
+  {% block SignUp %}
+  {% include 'includeFiles/SignUp.html' %}
+  {% endblock SignUp %}
+
+  {% block wishlist %} 
+  {% include 'includeFiles/wishlist.html' %}
+  {% endblock wishlist %}
+
+  {% block search %} 
+  {% include 'includeFiles/searching.html' %}
+  {% endblock search %}
+  
+  
+
+  <script data-cfasync="false" src="../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+  <script src="assets/js/vendors/modernizr-3.6.0.min.js"></script> 
+  <script src="{% static 'js/vendors/modernizr-3.6.0.min.js' %}"></script>
+  <script src="{% static 'js/vendors/jquery-migrate-3.3.0.min.js' %}"></script>
+  <script src="{% static 'js/vendors/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'js/vendors/waypoints.js' %}"></script>
+  <script src="{% static 'js/vendors/wow.js' %}"></script>
+  <script src="{% static 'js/vendors/magnific-popup.js' %}"></script>
+  <script src="{% static 'js/vendors/perfect-scrollbar.min.js' %}"></script>
+  <script src="{% static 'js/vendors/select2.min.js' %}"></script>
+  <script src="{% static 'js/vendors/isotope.js' %}"></script>
+  <script src="{% static 'js/vendors/swiper-bundle.min.js' %}"></script>
+  <script src="{% static 'js/vendors/counterup.js' %}"></script>
+  <script src="{% static 'js/vendors/jquery.countdown.min.js' %}"></script>
+  <script src="{% static 'js/vendors/slick.js' %}"></script>
+  <script src="{% static 'js/vendors/jquery.timepicker.min.js' %}"></script>
+  <script src="{% static 'js/vendors/glightbox.min.js' %}"></script>
+  <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>

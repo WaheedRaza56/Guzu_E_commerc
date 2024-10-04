@@ -1,0 +1,116 @@
+{% load static %}
+
+
+{% block footer %}
+  <footer class="footer" style="position: relative !important;">
+      <div class="footer-1">
+        <div class="container">
+
+          <div class="row">
+            
+            {% for item in footers %}
+            <div class="col-lg-4 mb-30">
+              <h6 class="color-white mb-20">{{item.heading}}</h6>
+              <p class="color-white body-p2 desc-company">{{item.para1}}</p>
+              <p class="color-white body-p2 email-footer">{{item.para2}} <a href="/cdn-cgi/l/email-protection" class="__cf_email__"data-cfemail="96fef3fafaf9d6e3eee6f3e4b8f5f9">{{item.link}}</a></p>
+              <p class="color-white body-p2 phone-footer">{{item.para3}}</p>
+            </div>
+            {% endfor %}
+
+            <div class="col-lg-8 mb-30">
+              <div class="row">
+                
+                {% for item in column1s %}
+                <div class="col-lg-3 mb-30">
+                  <h6 class="color-white mb-20">{{item.heading}}</h6>
+                  <ul class="menu-footer">
+                    <li><a href="about-us-1.html">{{item.link1}}</a></li>
+                    <li><a href="carrers.html">{{item.link2}}</a></li>
+                    <li><a href="store-location.html">{{item.link3}}</a></li>
+                    <li><a href="contact.html">{{item.link4}}</a></li>
+                  </ul>
+                </div>
+                {% endfor %}
+
+                {% for item in column2s %}
+                <div class="col-lg-3 mb-30">
+                  <h6 class="color-white mb-20">{{item.heading}}</h6>
+                  <ul class="menu-footer">
+                    <li><a href="about-us-1.html">{{item.link1}}</a></li>
+                    <li><a href="team.html">{{item.link2}}</a></li>
+                    <li><a href="career.html">{{item.link3}}</a></li>
+                    <li><a href="#">{{item.link4}}</a></li>
+                  </ul>
+                </div>
+                {% endfor %}
+
+                {% for item in column3s %}
+                <div class="col-lg-3 mb-30">
+                  <h6 class="color-white mb-20">{{item.heading}}</h6>
+                  <ul class="menu-footer">
+                    <li><a href="faq.html">{{item.link1}}</a></li>
+                    <li><a href="store-location.html">{{item.link2}}</a></li>
+                    <li><a href="store-location.html">{{item.link3}}</a></li>
+                    <li><a href="store-location.html">{{item.link4}}</a></li>
+                  </ul>
+                </div>
+                {% endfor %}
+
+                {% for item in column4s %}
+                <div class="col-lg-3 mb-30">
+                  <h6 class="color-white mb-20">{{item.heading}}</h6>
+                  <ul class="menu-footer">
+                    <li><a href="#">{{item.link1}}</a></li>
+                    <li><a href="#">{{item.link2}}</a></li>
+                    <li><a href="#">{{item.link3}}</a></li>
+                    <li><a href="#">{{item.link4}}</a></li>
+                  </ul>
+                </div>
+                {% endfor %}
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="footer-2">
+        <div class="container">
+          <div class="footer-bottom">
+            <div class="row align-items-center">
+              <div class="col-lg-6 col-md-12 text-center text-lg-start mb-20"><span class="body-p1 color-white">© 2023
+                  Guza.Co. All rights reserved</span></div>
+              <div class="col-lg-6 col-md-12 text-center text-lg-end mb-20">
+                <div class="d-flex justify-content-center justify-content-lg-end align-items-center box-all-payments">
+                  <div class="d-inline-block box-payments mr-20"><img src="{% static 'imgs/template/icons/visa.svg' %}"
+                      alt=""><img src="{% static 'imgs/template/icons/master.svg' %}" alt=""><img
+                      src="{% static 'imgs/template/icons/stripe.svg' %}" alt=""><img src="{% static 'imgs/template/icons/paypal.svg' %}"
+                      alt=""></div>
+                  <div class="dropdown mr-20">
+                    <button class="btn btn-line-bottom dropdown-toggle" id="dropdownLang" type="button"
+                      data-bs-toggle="dropdown" aria-expanded="false">EN</button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownLang">
+                      <li><a class="dropdown-item" href="#">EN</a></li>
+                      <li><a class="dropdown-item" href="#">JP</a></li>
+                      <li><a class="dropdown-item" href="#">KR</a></li>
+                    </ul>
+                  </div>
+                  <div class="dropdown">
+                    <button class="btn btn-line-bottom dropdown-toggle" id="dropdownCurrency" type="button"
+                      data-bs-toggle="dropdown" aria-expanded="false">USD</button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownCurrency">
+                      <li><a class="dropdown-item" href="#">USD</a></li>
+                      <li><a class="dropdown-item" href="#">EURO</a></li>
+                      <li><a class="dropdown-item" href="#">AUD</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+{% endblock footer %}
+    

@@ -1,0 +1,463 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+
+
+{% block main %}
+
+
+<main class="main">
+    <section class="section banner-homepage7 banner-homepage9">
+      <div class="box-swiper"> 
+        <div class="swiper-container swiper-banner pb-0">
+          <div class="swiper-wrapper">
+
+            {% for obj in sliderone %} 
+            <div class="swiper-slide">
+              <div class="box-cover-image"> <img src="{{ obj.bg_img.url }}" alt="Guza"></div>
+              <div class="box-banner-info">
+                <div class="text-center"> 
+                  <p class="overline-t2-medium color-primary-dark mb-10">{{obj.para1}}</p>
+                  <h2 class="text-72-bold color-primary-dark mb-10">{{obj.heading}}</h2>
+                  <p class="fonticon-24 mb-30">{{obj.para2}}</p>
+                  <div class="text-center"> <a class="btn btn-black" href="#">Shop Now</a></div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+
+          </div>
+          <div class="box-pagination-button">
+            <div class="swiper-pagination swiper-pagination-banner"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section block-product-home8">
+      <div class="container"> 
+        <div class="text-center"> 
+          <h3 class="mb-50 wow fadeInUp">Featured Categories</h3>
+        </div>
+        <div class="box-swiper"> 
+          <div class="swiper-container swiper-6-items pb-0">
+            <div class="swiper-wrapper">
+
+              {% for obj in slidertwo %}
+              <div class="swiper-slide">
+                <div class="cardCategorySmall wow fadeInUp">
+                  <div class="cardImage"><a href="#"><img class="swiper-image" src="{{ obj.bg_img.url }}" alt="Guza"></a></div>
+                  <div class="cardInfo">
+                    <a href="#">
+                      <h4 class="cardTitle">{{obj.para1}}</h4>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+
+            </div>
+            <div class="box-pagination-button box-pagination-leftright">
+              <div class="swiper-pagination swiper-pagination-6"></div>
+              <div class="swiper-button-prev swiper-button-prev-6 btn-prev-style-1"></div>
+              <div class="swiper-button-next swiper-button-next-6 btn-next-style-1"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="section block-product-home8">
+      <div class="container item_data"> 
+        <div class="text-center"> 
+          <h3 class="wow fadeInUp ">Handpicked Products</h3>
+        </div>
+        <div class="row mt-5 ">
+          
+        {% for item in handpickeds %}
+          <div class="col-lg-3 col-md-4 col-sm-6 "> 
+            <div class="cardProduct wow fadeInUp item_data">
+              <div class="cardImage">
+                <a href="#">
+                  <img class="imageMain" src="{{ item.bg_img.url }}" alt="guza">
+                  <img class="imageHover" src="{{ item.hover_img.url }}" alt="guza">
+                </a>
+                <div class="button-select">
+                  <a href="#">Select Options</a>
+                </div>
+                <div class="box-quick-button">
+
+{% comment %} ============================================================================================================================= {% endcomment %}
+                  {% if request.session %}
+                      <a class="btn " type="submit"  onclick="addtowishlist('{{ item.id }}')"  >
+                        <svg class="d-inline-flex align-items-center justify-content-center" width="28" height="28" viewbox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
+                          <g clip-path="url(#clip0_116_452)">
+                            <path d="M14.001 6.52898C16.35 4.41998 19.98 4.48998 22.243 6.75698C24.505 9.02498 24.583 12.637 22.479 14.993L13.999 23.485L5.52101 14.993C3.41701 12.637 3.49601 9.01898 5.75701 6.75698C8.02201 4.49298 11.645 4.41698 14.001 6.52898ZM20.827 8.16998C19.327 6.66798 16.907 6.60698 15.337 8.01698L14.002 9.21498L12.666 8.01798C11.091 6.60598 8.67601 6.66798 7.17201 8.17198C5.68201 9.66198 5.60701 12.047 6.98001 13.623L14 20.654L21.02 13.624C22.394 12.047 22.319 9.66498 20.827 8.16998Z" fill=""></path>
+                          </g>
+                          <defs>
+                            <clippath id="clip0_116_452">
+                              <rect width="24" height="24" fill="white" transform="translate(2 2)"></rect>
+                            </clippath>
+                          </defs>
+                        </svg>
+                      </a>                              
+                  {% endif %}
+                    
+{% comment %} ============================================================================================================================= {% endcomment %}
+
+                  <a class="btn preview-product" href="#">
+                    <svg class="d-inline-flex align-items-center justify-content-center" width="28" height="28" viewbox="0 0 28 28" fill="" xmlns="http://www.w3.org/2000/svg">
+                      <g clip-path="url(#clip0_91_73)">
+                        <path d="M20.031 18.617L24.314 22.899L22.899 24.314L18.617 20.031C17.0237 21.3082 15.042 22.0029 13 22C8.032 22 4 17.968 4 13C4 8.032 8.032 4 13 4C17.968 4 22 8.032 22 13C22.0029 15.042 21.3082 17.0237 20.031 18.617ZM18.025 17.875C19.2941 16.5699 20.0029 14.8204 20 13C20 9.132 16.867 6 13 6C9.132 6 6 9.132 6 13C6 16.867 9.132 20 13 20C14.8204 20.0029 16.5699 19.2941 17.875 18.025L18.025 17.875Z" fill=""></path>
+                      </g>
+                      <defs>
+                        <clippath id="clip0_91_73">
+                          <rect width="24" height="24" fill="white" transform="translate(2 2)"></rect>
+                        </clippath>
+                      </defs>
+                    </svg>
+                  </a>
+                </div>  
+              </div>
+              <div class="cardInfo">
+                <a href="#">
+                  <h6 class="text-16-medium cardTitle">{{item.heading}}</h6>
+                </a>
+                <p class="body-p2 cardDesc">{{item.para1}}</p>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+        </div>
+        <div class="text-center"> 
+          <a class="btn btn-border" href="#">View All Products</a>
+        </div>
+      </div>
+    </section>
+    
+    <section class="section block-banner-body"> 
+      <div class="container"> 
+        {% for item in banner_body %}
+        <div class="box-text-banner-video">
+          <h1 class="heading-title-medium color-white wow fadeInUp">{{item.heading}}</h1>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+
+
+    <section class="section box-blogs">
+      <div class="container">
+        <div class="text-center">
+          <h3 class="mb-40 wow fadeInLeft">Latest in Blog</h3>
+        </div>
+        <div class="row">
+          
+          {% for item in blogs %}
+          <div class="col-md-4">
+            <div class="cardBlog wow fadeInUp">
+              <div class="cardImage"><a href="#"><img src="{{item.bg_img.url}}" alt="guza"></a></div>
+              <div class="cardInfo">
+                <div class="cardTags"><a href="#">{{item.fashion}}</a><span class="date-post">{{item.para1}}</span></div><a class="cardTitle" href="#">
+                  <h5>{{item.heading}}</h5></a>
+                <p class="cardDesc body-p2">{{item.para2}}</p><a class="link-underline link-l2" href="#">Read More</a>
+              </div>
+            </div>
+          </div>
+            {% endfor %}
+
+          
+        </div>
+      </div>
+    </section>
+
+
+
+
+    <section class="section block-instagram-type4-home7">
+      <div class="container"> 
+        <div class="text-center">
+          <h6 class="text-18-medium instagram-title wow fadeInUp">Instagram with #July</h6>
+        </div>
+      </div>
+      <div class="box-gallery-instagram"> 
+
+        {% for item in instaPics %}
+          <div class="gallery-item wow fadeInLeft"><img src="{{item.bg_img.url}}" alt="Guza"></div>
+        {% endfor %}
+
+      </div>
+    </section>
+
+
+    <section class="section"> 
+      <div class="container"> 
+        <div class="box-subsciber box-subsciber-type-1"> 
+          <div class="row align-items-center"> 
+            
+            {% for item in discount_offers %}                                                                      
+            <div class="col-lg-5">
+              <h3 class="text-subscribe mb-15 wow fadeInLeft">{{item.heading}}</h3>
+              <p class="body-p2 neutral-medium-dark wow fadeInUp">{{item.para1}}<a class="neutral-dark" href="#">  {{item.link}}</a></p>
+            </div>
+            {% endfor %}
+
+            <div class="col-lg-1"></div>
+            <div class="col-lg-6">
+              <div class="box-form-subscribe wow fadeInRight"> 
+                <form class="form-sub" action="#" method="POST">
+                  <input class="form-control" type="text" placeholder="Enter your email">
+                  <input class="btn btn-subscribe" type="submit" value="Subscribe">
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+  </main>
+
+<script>
+
+  // ==================================================Add_to_wishlist==================================================
+  function addtowishlist(id, quantity) 
+  {
+    console.log("item ID is ", id);
+    $.ajax({
+        type: "GET",
+        url: "{% url 'addtowishlist' %}",
+        data: {
+            "id": id,
+            "quantity": quantity
+        },
+        dataType: "json",
+        beforeSend: function () 
+        {
+            console.log("Adding to wishlist...");
+        },
+        success: function (response) 
+        {
+            if (response.wishlist_count) 
+            {
+                alert("Item already in wishlist");
+            } 
+            else if (response.bool === true) 
+            {
+                console.log("Added to wishlist...");
+
+              if (response.totalamount !== undefined) 
+              {
+                  $("#wishlist-count").text(response.totalamount);
+              }
+              
+
+                location.reload()
+            } 
+            else 
+            {
+                console.log("Item not found or couldn't be added to the wishlist.");
+            }
+        },
+        error: function (error) 
+        {
+            console.error("Error in AJAX request:", error);
+        }
+    });
+}
+
+  // ==================================================Delete_from_wishlist==================================================
+  $(document).on("click",".delete-wishlist-product",function()
+  {
+    let wishlist_id = $(this).attr("data-wishlist-product")
+    let this_val = $(this)
+
+    console.log("wishlist_id is :",wishlist_id)
+
+    $.ajax({
+      url:"/delete-From-Wishlist",
+      data:{
+        "id":wishlist_id
+      },
+      dataType:"json",
+      beforeSend:function()
+      {
+        console.log("delete product from wishlist...");
+      },
+      success: function(response) 
+      {
+        console.log(response);  
+        $("#wishlist-list").html(response.data);
+        console.log("item deleted...!");
+        location.reload()
+      }
+      
+    })
+})
+
+// ==================================================ADD_to_Cart==================================================
+
+function addtocart(id, quantity)
+{
+  console.log("item ID is ", id);
+  $.ajax({
+      type: "GET",
+      url: "{% url 'addtocart' %}",
+      data: 
+      {
+          "id": id,
+          "item_quantity": quantity
+      },
+      dataType: "json",
+      beforeSend: function () 
+      {
+          console.log("Adding to cart...");
+      },
+      success: function (response) 
+      {
+        console.log("waheed what about you thinking....")
+          if (response.cart_count) 
+          {
+              alert("Item already in cart");
+          }
+          if (response.bool === true) 
+          {
+              console.log("Added to cart...");
+              if (response.cart_item !== undefined) 
+              {
+                  $("#cart-count").text(response.cart_item);
+                  location.reload();
+              }
+          } 
+          else 
+          {
+              console.log("Item not found or couldn't be added to the cart.");
+          }
+      },
+      error: function (error) 
+      {
+          console.error("Error in AJAX request:", error);
+      }
+  });
+}
+
+  // ==================================================Delete_from_Cart==================================================
+  $(document).on("click",".delete-cart-product",function()
+  {
+    let cart_id = $(this).attr("data-cart-product")
+    let this_val = $(this)
+
+    console.log("cart_id is :",cart_id)
+
+    $.ajax({
+      url:"/delete-From-Cart",
+      data:{
+        "id":cart_id
+      },
+      dataType:"json",
+      beforeSend:function()
+      {
+        console.log("delete product from cart...");
+      },
+      success: function(response) 
+      {
+        console.log(response);  
+        $("#cart-list").html(response.data);
+        console.log("item deleted...!");
+        location.reload()
+      }
+
+    })
+})
+  // ==================================================prices==================================================
+
+
+    function fetchCartPrices() 
+    {
+        $.ajax({
+            type: "GET",
+            url: "{% url 'cart_price' %}",
+            dataType: "json",
+            success: function (response) 
+            {
+              console.log(response);
+              if (response.amount !== undefined && response.totalAmount !== undefined) 
+              {
+                //var amount = parseInt(response.amount);
+                var totalAmount = parseInt(response.totalAmount);
+
+//               $(".amount").text(amount);
+                $(".totalAmount-display").text(totalAmount);
+                $("[data-total-amount='waheed']").text(totalAmount);
+
+               // console.log("Amount:", amount);
+                console.log("Total Amount:", totalAmount);
+
+              } 
+              else 
+              {
+                  console.log("Amount or totalAmount not present in the response.");
+              }
+          },
+          error: function (xhr, status, error) 
+            {
+              console.error("Error fetching cart prices:", error);
+              console.log("Status:", status);
+              console.log("XHR response:", xhr.responseText);
+            }
+        });
+    }
+// ==================================================plus_price==================================================
+    
+function plus_cart(element) 
+{
+  var id = $(element).attr("id").toString();
+  var eml = element.parentNode.children[2];
+  console.log("id is =", id);
+
+  $.ajax({
+    type: "GET",
+    url: "{% url 'plus_cart_price' %}",
+    data: {
+        "id": id
+    },
+    success: function (response) 
+    { 
+      console.log("id is =", id);
+      console.log(response);
+      
+      $("[data-amount-id='" + id + "']").html(response.amount);
+      $("[data-total-amount='waheed']").html(response.totalAmount);
+    }
+  });
+}
+
+// ==================================================Minus_price==================================================
+
+function minus_cart(element) 
+{
+  var id = $(element).attr("id").toString();
+  var eml = element.parentNode.children[2];
+  console.log("id is =", id);
+
+  $.ajax({
+    type: "GET",
+    url: "{% url 'minus_cart_price' %}",
+    data: {
+        "id": id
+    },
+    success: function (response) { 
+      console.log("id is =", id);
+      console.log(response);
+      
+      $("[data-amount-id='" + id + "']").html(response.amount);
+      $("[data-total-amount='waheed']").html(response.totalAmount);
+    }
+  });
+}
+
+
+</script>
+  
+
+{% endblock main %}

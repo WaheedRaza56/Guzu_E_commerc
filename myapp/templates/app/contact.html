@@ -1,0 +1,86 @@
+  {% extends 'app/base.html' %}
+  {% load static %}
+
+
+
+  {% block title %}
+      <title>Contact Us - Multipurpose Startup SaaS HTML Template</title>
+  {% endblock title %}
+      
+
+  {% block main %}
+    <main class="main">
+
+      {% for item in contacthHeading %}
+        <section class="section banner-500">
+          <div class="box-cover-image wow fadeInUp"></div>
+          <div class="box-banner-info wow bounceIn"> 
+            <p class="overline-t2-medium text-uppercase primary-navy mb-10">{{item.para1}}</p>
+            <h2 class="color-primary-dark mb-30">{{item.heading}} <br class="d-none d-lg-block">{{item.heading2}} <br class="d-none d-lg-block">{{item.heading3}} </h2>
+          </div>
+        </section>
+      {% endfor %}
+
+      <div class="section block-maps"> 
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25958.466260663557!2d-81.44280595924573!3d35.58312354977769!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8856d2948d052daf%3A0xe3fa19c20612b365!2zTkMtMTAgSHd5LCBOZXd0b24sIE5DLCBIb2EgS-G7sw!5e0!3m2!1svi!2s!4v1683730972471!5m2!1svi!2s" width="100%" height="550" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <section class="section block-form-contact">
+        <div class="container"> 
+          <div class="row"> 
+
+            {% for item in Addres %}
+            <div class="col-lg-5 mb-40 wow bounceIn"> 
+              <h4>{{item.heading1}}</h4>
+              <p class="body-p2 neutral-medium-dark mb-45">{{item.para1}}</p>
+              <h4 class="mb-20">{{item.heading2}}</h4>
+              <p class="body-p2 neutral-medium-dark mb-10">{{item.para2}}</p>
+              <p class="body-p2 neutral-medium-dark mb-45">{{item.para3}} <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1e767b7272715e6b666e7b6c307d71">{{item.link}}</a></p>
+              <h4 class="mb-15">{{item.heading3}}</h4>
+              <p class="body-p2 neutral-medium-dark mb-45">{{item.para4}}<br>{{item.para5}}</p>
+              {% comment %} <div class="socials mt-55 justify-content-start"><a class="ml-0" href="#"><img src="assets/imgs/page/about1/fb.svg" alt="Guza"></a><a href="#"><img src="assets/imgs/page/about1/insta.svg" alt="Guza"></a></div> {% endcomment %}
+            </div>
+            {% endfor %}
+
+            <div class="col-lg-7 mb-40 wow bounceIn"> 
+              
+              {% for item in GetTech %}
+                <h4 class="mb-10">{{item.heading}}</h4>
+                <p class="text-16-medium neutral-medium mb-30">{{item.para1}}</p>
+              {% endfor %}
+
+            <div class="row"> 
+
+              <form method="post">
+                {% csrf_token %}
+              
+                {% for fm in formone %}
+                  <div class="form-group col-lg-12 mb-3">
+                    {{fm.label_tag}} {{fm}}
+                    <small class="text-danger">{{fm.errors|striptags}}</small>
+                  </div>
+                {% endfor %}
+
+                <div class="col-lg-12 "> 
+                  <div class="text-center mt-10"> 
+                    <button class="btn btn-black">Post Comment</button>
+                  </div>
+                </div>
+
+                {% if formone.non_field_errors %} 
+                  {% for error in formone.non_field_errors %}
+                    <p class="alert alert-danger my-3">{{error}}</p>
+                  {% endfor %} 
+                {% endif %}
+
+              </form>
+
+            </div>
+              
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+  {% endblock main %}
+      

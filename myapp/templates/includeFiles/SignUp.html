@@ -1,0 +1,61 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block SignUp %}
+
+<div class="box-popup-account">
+  <div class="box-account-overlay"></div>
+  <div class="box-account-wrapper">
+    <a class="btn-close-popup btn-close-popup-account" href="#">
+      <svg class="icon-16 d-inline-flex align-items-center justify-content-center" fill="#111111" stroke="#111111" width="24" height="24" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </a>
+
+    <div class="form-account-info">
+      
+      {% for item in account %}
+        <a class="button-tab btn-for-login active" href="#">{{ item.heading1 }}</a>
+        <a class="button-tab btn-for-signup" href="#">{{ item.heading2 }}</a>
+      {% endfor %}
+      
+      {% include 'includeFiles/login.html' %}
+
+      <div class="form-register">
+        <form action="{% url 'SignUp' %}" method="POST" class="shadow p-2">
+          
+          {% csrf_token %}
+
+          
+          {% for fm in formtwo %}
+            <div class="form-group">
+              {{ fm }}
+              <small class="text-danger">{{ fm.errors|striptags }}</small>
+            </div>
+          {% endfor %}
+
+          <div class="form-group">
+            <label class="d-flex align-items-start">
+              <input class="cb-agree" type="checkbox">
+              <span class="text-agree body-p2">Join for Free and start earning points today. Benefits include 15% off your first purchase,</span>
+            </label>
+          </div>
+
+          <input type="submit" value="Submit" class="btn btn-black d-block">
+          <br><br>
+          
+          <div class="text-center">
+            <p class="body-p2 neutral-medium-dark">
+              Already have an account?<a class="neutral-dark login-now" href="#">Login Now</a>
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    {% include 'includeFiles/recovery.html' %}
+
+  </div>
+</div>
+
+{% endblock SignUp %}

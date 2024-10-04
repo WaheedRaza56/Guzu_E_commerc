@@ -1,0 +1,111 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+
+
+{% block title %}
+<title>Blog List - Multipurpose Startup SaaS HTML Template</title>
+{% endblock title %}
+
+
+{% block main %}
+  <main class="main">
+    <section class="section block-head"> 
+      <div class="container"> 
+        <div class="text-center wow bounceIn"> 
+          <h1>Our Stories</h1>
+          <div class="breadcrumbs d-inline-block"> 
+            <ul> 
+              <li> <a href="#">Home </a></li>
+              <li> <a href="#">Blog</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section block-blog-list">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-9">
+
+          {% for item in blogLists %}
+            <div class="cardBlog cardBlogList wow fadeInUp">
+              <div class="cardImage"><a href="#"><img src="{{item.bg_img.url}}" alt="guza"></a></div>
+              <div class="cardInfo">
+                <div class="cardTags"><a href="#">{{item.link}}</a><span class="date-post text-uppercase">{{item.para1}}</span></div><a class="cardTitle" href="#">
+                  <h5>{{item.heading}}</h5></a>
+                <p class="cardDesc body-p2">{{item.para2}}</p><a class="link-underline link-l2" href="#">Read More</a>
+              </div>
+            </div>
+            {% endfor %}
+
+            <div class="mt-80">
+              <nav class="box-pagination">
+                <ul class="pagination">
+                  <li class="page-item"><a class="page-link page-prev" href="#">
+                      <svg fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15m0 0l6.75 6.75M4.5 12l6.75-6.75"></path>
+                      </svg></a></li>
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link active" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item"><a class="page-link" href="#">...</a></li>
+                  <li class="page-item"><a class="page-link" href="#">10</a></li>
+                  <li class="page-item"><a class="page-link page-next" href="#">
+                      <svg fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"></path>
+                      </svg></a></li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="sidebar-right">
+              
+              {% for item in categories %}
+                <div class="block-sidebar">
+                  <h5 class="text-20-medium mb-20">{{item.heading}}</h5>
+                  <ul class="list-categories">
+                    <li><a href="#">{{item.link1}}</a></li>
+                    <li><a href="#">{{item.link2}}</a></li>
+                    <li><a href="#">{{item.link3}}</a></li>
+                    <li><a href="#">{{item.link4}}</a></li>
+                    <li><a href="#">{{item.link2}}</a></li>
+                  </ul>
+                </div>
+              {% endfor %}
+              
+              <div class="block-sidebar">
+                <h5 class="text-20-medium mb-20">Latest Post</h5>
+
+                {% for item in Latest_Posts %}
+                  <ul class="list-latest-posts">
+                      <li>
+                        <div class="image-post"><a href="#"><img src="{{item.bg_img.url}}" alt=""></a></div>
+                        <div class="info-post"><span class="date-post text-uppercase">{{item.para1}}</span><a href="#">
+                            <h5 class="title-post">{{item.heading}}</h5></a></div>
+                      </li>
+                  </ul>
+                {% endfor %}
+
+              </div>
+        
+                {% for item in Tag %}
+                  <div class="block-sidebar">
+                    <h5 class="text-20-medium mb-20">{{item.heading}}</h5>
+                    <div class="box-tags"><a class="btn btn-tag-filter" href="#">{{item.link1}}</a><a class="btn btn-tag-filter" href="#">{{item.link2}}</a><a class="btn btn-tag-filter" href="#">{{item.link3}}</a><a class="btn btn-tag-filter" href="#">{{item.link4}}</a><a class="btn btn-tag-filter" href="#">{{item.link5}}</a><a class="btn btn-tag-filter" href="#">{{item.link6}}</a><a class="btn btn-tag-filter" href="#">{{item.link7}}</a><a class="btn btn-tag-filter" href="#">{{item.link8}}</a></div>
+                  </div>
+                  <div class="block-sidebar"><img src="{{item.bg_img.url}}" alt=""></div>
+                {% endfor %}
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  
+{% endblock main %}
+    
